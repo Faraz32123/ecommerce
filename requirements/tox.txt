@@ -18,7 +18,6 @@ six==1.16.0
     # via tox
 toml==0.10.2
     # via tox
-tox==3.14.6
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/tox.in
