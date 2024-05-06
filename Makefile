@@ -173,8 +173,7 @@ upgrade: $(COMMON_CONSTRAINTS_TXT)
 docs:
 	tox -e docs
 
-quality-and-jobs: 
-	requirements.js
+quality-and-jobs: requirements.js
 	check_translations_up_to_date
 	validate_translations
 	clean_static
@@ -182,14 +181,12 @@ quality-and-jobs:
 	validate_js
 	check_keywords
 
-test-python: 
-	requirements.js
+test-python: requirements.js
 	clean_static
 	static
 	validate_python
 
-acceptance-python: 
-	requirements.js
+acceptance-python: requirements.js
 	clean_static
 	static
 	acceptance
