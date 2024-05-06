@@ -1,6 +1,6 @@
 NODE_BIN=./node_modules/.bin
 DIFF_COVER_BASE_BRANCH=master
-PYTHON_ENV=$(if $(PYTHON_ENV),$(PYTHON_ENV),py312)
+PYTHON_ENV_VAR=$(if $(PYTHON_ENV),$(PYTHON_ENV),py312)
 DJANGO_ENV_VAR=$(if $(DJANGO_ENV),$(DJANGO_ENV),django32)
 
 help:
@@ -52,10 +52,10 @@ production-requirements: requirements.js
 	pip3 install -r requirements.txt --exists-action w
 
 migrate: requirements.tox
-	tox -e $(PYTHON_ENV)-${DJANGO_ENV_VAR}-migrate
+	tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-migrate
 
 serve: requirements.tox
-	tox -e $(PYTHON_ENV)-${DJANGO_ENV_VAR}-serve
+	tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-serve
 
 clean:
 	find . -name '*.pyc' -delete
@@ -65,18 +65,18 @@ clean_static:
 	rm -rf assets/* ecommerce/static/build/*
 
 run_check_isort: requirements.tox
-	tox -e $(PYTHON_ENV)-check_isort
+	tox -e $(PYTHON_ENV_VAR)-check_isort
 
 run_isort: requirements.tox
-	tox -e $(PYTHON_ENV)-${DJANGO_ENV_VAR}-run_isort
+	tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-run_isort
 
 run_pycodestyle: requirements.tox
-	tox -e $(PYTHON_ENV)-${DJANGO_ENV_VAR}-pycodestyle
+	tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-pycodestyle
 
 run_pep8: run_pycodestyle
 
 run_pylint: requirements.tox
-	tox -e $(PYTHON_ENV)-${DJANGO_ENV_VAR}-pylint
+	tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-pylint
 
 quality: run_check_isort run_pycodestyle run_pylint
 
@@ -86,42 +86,42 @@ validate_js:
 	$(NODE_BIN)/gulp lint
 
 validate_python: clean requirements.tox
-	tox -e $(PYTHON_ENV)-${DJANGO_ENV_VAR}-tests
+	tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-tests
 
 acceptance: clean requirements.tox
-	tox -e $(PYTHON_ENV)-${DJANGO_ENV_VAR}-acceptance
+	tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-acceptance
 
 fast_validate_python: clean requirements.tox
-	DISABLE_ACCEPTANCE_TESTS=True tox -e $(PYTHON_ENV)-${DJANGO_ENV_VAR}-tests
+	DISABLE_ACCEPTANCE_TESTS=True tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-tests
 
 validate: validate_python validate_js quality
 
 theme_static: requirements.tox
-	tox -e $(PYTHON_ENV)-${DJANGO_ENV_VAR}-theme_static
+	tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-theme_static
 
 static: requirements.js theme_static requirements.tox
 	$(NODE_BIN)/r.js -o build.js
-	tox -e $(PYTHON_ENV)-${DJANGO_ENV_VAR}-static
+	tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-static
 
 html_coverage: requirements.tox
-	tox -e $(PYTHON_ENV)-coverage_html
+	tox -e $(PYTHON_ENV_VAR)-coverage_html
 
 diff_coverage: validate fast_diff_coverage
 
 fast_diff_coverage: requirements.tox
-	tox -e $(PYTHON_ENV)-fast_diff_coverage
+	tox -e $(PYTHON_ENV_VAR)-fast_diff_coverage
 
 e2e: requirements.tox
-	tox -e $(PYTHON_ENV)-e2e
+	tox -e $(PYTHON_ENV_VAR)-e2e
 
 extract_translations: requirements.tox
-	tox -e $(PYTHON_ENV)-${DJANGO_ENV_VAR}-extract_translations
+	tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-extract_translations
 
 dummy_translations: requirements.tox
-	tox -e $(PYTHON_ENV)-${DJANGO_ENV_VAR}-dummy_translations
+	tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-dummy_translations
 
 compile_translations: requirements.tox
-	tox -e $(PYTHON_ENV)-${DJANGO_ENV_VAR}-compile_translations
+	tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-compile_translations
 
 fake_translations: extract_translations dummy_translations compile_translations
 
@@ -134,18 +134,18 @@ update_translations: pull_translations fake_translations
 
 # extract_translations should be called before this command can detect changes
 detect_changed_source_translations: requirements.tox
-	tox -e $(PYTHON_ENV)-${DJANGO_ENV_VAR}-detect_changed_translations
+	tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-detect_changed_translations
 
 # @FIXME: skip detect_changed_source_translations until git diff works again (REV-2737)
 check_translations_up_to_date: fake_translations # detect_changed_source_translations
 
 # Validate translations
 validate_translations: requirements.tox
-	tox -e $(PYTHON_ENV)-${DJANGO_ENV_VAR}-validate_translations
+	tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-validate_translations
 
 # Scan the Django models in all installed apps in this project for restricted field names
 check_keywords: requirements.tox
-	tox -e $(PYTHON_ENV)-${DJANGO_ENV_VAR}-check_keywords
+	tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-check_keywords
 
 COMMON_CONSTRAINTS_TXT=requirements/common_constraints.txt
 .PHONY: $(COMMON_CONSTRAINTS_TXT)
