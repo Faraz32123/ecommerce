@@ -30,8 +30,10 @@ asn1crypto==1.5.1
     # via
     #   -r requirements/base.txt
     #   cybersource-rest-client-python
-astroid==2.9.3
-    # via pylint
+astroid==3.1.0
+    # via
+    #   -r requirements/base.txt
+    #   pylint
 async-timeout==4.0.3
     # via
     #   -r requirements/base.txt
@@ -44,7 +46,7 @@ attrs==23.2.0
     #   jsonschema
     #   referencing
     #   zeep
-babel==2.14.0
+babel==2.15.0
     # via
     #   -r requirements/base.txt
     #   django-oscar
@@ -59,7 +61,7 @@ backports-zoneinfo[tzdata]==0.2.1 ; python_version < "3.9"
     #   celery
     #   djangorestframework
     #   kombu
-bcrypt==4.1.2
+bcrypt==4.1.3
     # via
     #   -r requirements/base.txt
     #   cybersource-rest-client-python
@@ -72,9 +74,9 @@ billiard==4.2.0
     #   celery
 bleach==6.1.0
     # via -r requirements/base.txt
-boto3==1.34.96
+boto3==1.34.98
     # via -r requirements/base.txt
-botocore==1.34.96
+botocore==1.34.98
     # via
     #   -r requirements/base.txt
     #   boto3
@@ -143,7 +145,7 @@ coreschema==0.0.4
     # via
     #   -r requirements/base.txt
     #   coreapi
-coverage[toml]==7.5.0
+coverage[toml]==7.5.1
     # via
     #   -r requirements/base.txt
     #   -r requirements/test.in
@@ -155,7 +157,7 @@ crypto==1.4.1
     # via
     #   -r requirements/base.txt
     #   cybersource-rest-client-python
-cryptography==42.0.5
+cryptography==42.0.6
     # via
     #   -r requirements/base.txt
     #   app-store-notifications-v2-validator
@@ -187,8 +189,12 @@ defusedxml==0.8.0rc2
     #   -r requirements/base.txt
     #   python3-openid
     #   social-auth-core
-diff-cover==7.7.0
+diff-cover==9.0.0
     # via -r requirements/test.in
+dill==0.3.8
+    # via
+    #   -r requirements/base.txt
+    #   pylint
     # via
     #   -c requirements/common_constraints.txt
     #   -r requirements/base.txt
@@ -260,7 +266,7 @@ django-haystack==3.3b2
     #   django-oscar
 django-libsass==0.9
     # via -r requirements/base.txt
-django-model-utils==4.5.0
+django-model-utils==4.5.1
     # via
     #   -r requirements/base.txt
     #   edx-rbac
@@ -380,7 +386,7 @@ factory-boy==3.2.1
     #   -r requirements/base.txt
     #   -r requirements/test.in
     #   django-oscar
-faker==25.0.0
+faker==25.0.1
     # via
     #   -r requirements/base.txt
     #   factory-boy
@@ -445,8 +451,9 @@ idna==2.7
     #   cybersource-rest-client-python
     #   requests
     #   yarl
-importlib-metadata==7.1.0
+importlib-metadata==6.11.0
     # via
+    #   -c requirements/common_constraints.txt
     #   -r requirements/base.txt
     #   -r requirements/e2e.txt
     #   markdown
@@ -480,13 +487,14 @@ isodate==0.6.1
     #   zeep
 isort==5.13.2
     # via
+    #   -r requirements/base.txt
     #   -r requirements/test.in
     #   pylint
 itypes==1.2.0
     # via
     #   -r requirements/base.txt
     #   coreapi
-jinja2==3.1.3
+jinja2==3.1.4
     # via
     #   -r requirements/base.txt
     #   -r requirements/e2e.txt
@@ -514,8 +522,6 @@ kombu==5.3.7
     # via
     #   -r requirements/base.txt
     #   celery
-lazy-object-proxy==1.10.0
-    # via astroid
 libsass==0.23.0
     # via
     #   -r requirements/base.txt
@@ -548,9 +554,9 @@ markupsafe==2.1.5
     #   -r requirements/base.txt
     #   -r requirements/e2e.txt
     #   jinja2
-mccabe==0.6.1
+mccabe==0.7.0
     # via
-    #   -c requirements/constraints.txt
+    #   -r requirements/base.txt
     #   pylint
 mock==5.1.0
     # via -r requirements/test.in
@@ -619,7 +625,7 @@ pbr==6.0.0
     #   cybersource-rest-client-python
     #   fixtures
     #   stevedore
-phonenumbers==8.13.35
+phonenumbers==8.13.36
     # via
     #   -r requirements/base.txt
     #   django-oscar
@@ -710,7 +716,7 @@ pycryptodomex==3.20.0
     #   -r requirements/e2e.txt
     #   cybersource-rest-client-python
     #   pyjwkest
-pygments==2.17.2
+pygments==2.18.0
     # via
     #   -r requirements/base.txt
     #   diff-cover
@@ -727,9 +733,9 @@ pyjwt[crypto]==2.8.0
     #   edx-drf-extensions
     #   edx-rest-api-client
     #   social-auth-core
-pylint==2.12.2
+pylint==3.1.0
     # via
-    #   -c requirements/constraints.txt
+    #   -r requirements/base.txt
     #   -r requirements/test.in
 pymongo==4.4.0
     # via
@@ -990,7 +996,7 @@ stevedore==5.2.0
     #   -r requirements/e2e.txt
     #   edx-django-utils
     #   edx-opaque-keys
-stripe==9.4.0
+stripe==9.5.0
     # via -r requirements/base.txt
 tenacity==6.3.1
     # via
@@ -1006,13 +1012,18 @@ testtools==2.7.1
 toml==0.10.2
     # via
     #   -r requirements/tox.txt
-    #   pylint
     #   tox
 tomli==2.0.1
     # via
+    #   -r requirements/base.txt
     #   -r requirements/e2e.txt
     #   coverage
+    #   pylint
     #   pytest
+tomlkit==0.12.4
+    # via
+    #   -r requirements/base.txt
+    #   pylint
 tox==3.14.6
     # via
     #   -c requirements/constraints.txt
@@ -1090,10 +1101,8 @@ wheel==0.43.0
     # via
     #   -r requirements/base.txt
     #   cybersource-rest-client-python
-wrapt==1.13.3
-    # via
-    #   -c requirements/constraints.txt
-    #   astroid
+wrapt==1.16.0
+    # via -r requirements/base.txt
 x509==0.1
     # via
     #   -r requirements/base.txt

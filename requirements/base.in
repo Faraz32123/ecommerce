@@ -64,4 +64,6 @@ stripe
 unicodecsv
 xss-utils
 zeep
-
+pylint
+mccabe
+wrapt

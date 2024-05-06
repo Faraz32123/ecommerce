@@ -45,13 +45,6 @@ selenium<4.0.0
 pytest-selenium<3.0.0
 pytest-variables<3.0.0
 
-# pylint>2.12.2 requires a lot of quality fixes. Can be resolved later on.
-pylint==2.12.2
-# pylint==2.12.2 requires mccabe<0.7.0
-mccabe<0.7
-# pylint==2.12.2 requires wrapt<1.14
-wrapt<1.14
-
 # backports-zoneinfo comes by-default in newer versions of python
 # it gives error while building wheel with python>=3.9
 backports.zoneinfo ; python_version < "3.9"
