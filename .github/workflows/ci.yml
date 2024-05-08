@@ -76,5 +76,7 @@ jobs:
           architecture: x64
       - name: Install Dependencies
         run: pip install -r requirements/docs.txt -r requirements/tox.txt
+      - name: Install tox
+        run: pip uninstall tox -y && apt-get install tox
       - name: Build the docs
         run: make docs
