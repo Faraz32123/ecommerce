@@ -202,6 +202,10 @@ dill==0.3.8
     # via
     #   -r requirements/test.txt
     #   pylint
+distlib==0.3.8
+    # via
+    #   -r requirements/test.txt
+    #   virtualenv
 django==3.2.25
     # via
     #   -r requirements/test.txt
@@ -399,6 +403,7 @@ filelock==3.14.0
     # via
     #   -r requirements/test.txt
     #   tox
+    #   virtualenv
 fixtures==4.1.0
     # via
     #   -r requirements/test.txt
@@ -647,6 +652,7 @@ platformdirs==4.2.1
     # via
     #   -r requirements/test.txt
     #   pylint
+    #   virtualenv
     #   zeep
 pluggy==1.5.0
     # via
@@ -1116,7 +1122,7 @@ vine==5.1.0
     #   amqp
     #   celery
     #   kombu
-virtualenv==16.7.9
+virtualenv==20.26.1
     # via
     #   -r requirements/test.txt
     #   tox

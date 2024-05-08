@@ -4,10 +4,20 @@
 #
 #    make upgrade
 #
+distlib==0.3.8
+    # via virtualenv
 filelock==3.14.0
-    # via tox
+    # via
+    #   tox
+    #   virtualenv
 packaging==24.0
-    # via tox
+    # via
+    #   pyproject-api
+    #   tox
+platformdirs==4.2.1
+    # via
+    #   tox
+    #   virtualenv
 pluggy==1.5.0
     # via tox
 py==1.11.0
@@ -15,14 +25,14 @@ py==1.11.0
 six==1.16.0
     # via tox
 tomli==2.0.1
-    # via tox
+    # via
+    #   pyproject-api
+    #   tox
 tox==3.28.0
     # via
     #   -r requirements/tox.in
     #   tox-battery
 tox-battery==0.6.2
     # via -r requirements/tox.in
-virtualenv==16.7.9
-    # via
-    #   -c requirements/constraints.txt
-    #   tox
+virtualenv==20.26.1
+    # via tox
