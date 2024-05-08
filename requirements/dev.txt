@@ -87,9 +87,9 @@ billiard==4.2.0
     #   celery
 bleach==6.1.0
     # via -r requirements/test.txt
-boto3==1.34.98
+boto3==1.34.99
     # via -r requirements/test.txt
-botocore==1.34.98
+botocore==1.34.99
     # via
     #   -r requirements/test.txt
     #   boto3
@@ -166,7 +166,7 @@ crypto==1.4.1
     # via
     #   -r requirements/test.txt
     #   cybersource-rest-client-python
-cryptography==42.0.6
+cryptography==42.0.7
     # via
     #   -r requirements/test.txt
     #   app-store-notifications-v2-validator
@@ -918,7 +918,7 @@ rjsmin==1.2.1
     # via
     #   -r requirements/test.txt
     #   django-compressor
-rpds-py==0.18.0
+rpds-py==0.18.1
     # via
     #   -r requirements/test.txt
     #   jsonschema
