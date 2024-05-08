@@ -83,10 +83,8 @@ pbr==6.0.0
     # via
     #   -c requirements/base.txt
     #   stevedore
-pluggy==0.13.1
-    # via
-    #   -c requirements/constraints.txt
-    #   pytest
+pluggy==1.5.0
+    # via pytest
 psutil==5.9.8
     # via
     #   -c requirements/base.txt

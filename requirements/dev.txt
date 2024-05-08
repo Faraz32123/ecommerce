@@ -87,9 +87,9 @@ billiard==4.2.0
     #   celery
 bleach==6.1.0
     # via -r requirements/test.txt
-boto3==1.34.99
+boto3==1.34.100
     # via -r requirements/test.txt
-botocore==1.34.99
+botocore==1.34.100
     # via
     #   -r requirements/test.txt
     #   boto3
@@ -648,7 +648,7 @@ platformdirs==4.2.1
     #   -r requirements/test.txt
     #   pylint
     #   zeep
-pluggy==0.13.1
+pluggy==1.5.0
     # via
     #   -r requirements/test.txt
     #   diff-cover
@@ -1049,21 +1049,18 @@ testtools==2.7.1
     #   -r requirements/test.txt
     #   cybersource-rest-client-python
     #   python-subunit
-toml==0.10.2
-    # via
-    #   -r requirements/test.txt
-    #   tox
 tomli==2.0.1
     # via
     #   -r requirements/test.txt
     #   coverage
     #   pylint
     #   pytest
+    #   tox
 tomlkit==0.12.4
     # via
     #   -r requirements/test.txt
     #   pylint
-tox==3.14.6
+tox==3.28.0
     # via
     #   -r requirements/test.txt
     #   tox-battery
