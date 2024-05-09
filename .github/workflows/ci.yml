@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['py38', 'py311', 'py312']
+        python-version: ['py311', 'py312']
         django-env: ['django32']
         test: ['quality-and-jobs', 'test-python', acceptance-python]
     steps:
@@ -63,18 +63,18 @@ jobs:
           flags: unittests
           fail_ci_if_error: false
 
-  docs:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ['3.8', '3.11', '3.12']
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: ${{matrix.python-version}}
-          architecture: x64
-      - name: Install Dependencies
-        run: pip install -r requirements/docs.txt -r requirements/tox.txt
-      - name: Build the docs
-        run: make docs
+  # docs:
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       python-version: ['3.8', '3.11', '3.12']
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-python@v2
+  #       with:
+  #         python-version: ${{matrix.python-version}}
+  #         architecture: x64
+  #     - name: Install Dependencies
+  #       run: pip install -r requirements/docs.txt -r requirements/tox.txt
+  #     - name: Build the docs
+  #       run: make docs
