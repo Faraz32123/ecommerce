@@ -18,6 +18,7 @@ RUN apt update && \
   python${PYTHON_VERSION}-dev \
   python${PYTHON_VERSION}-distutils \
   mysql-server \
+  default-libmysqlclient-dev \
   libmysqlclient-dev \
   libssl-dev \
   libcairo2-dev && \
