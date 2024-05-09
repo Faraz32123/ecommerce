@@ -19,6 +19,7 @@ RUN apt update && \
   libssl-dev \
   mysql-client \
   libmysqlclient-dev \
+  libmariadb-dev \
   libmariadbclient-dev \
   pkg-config \
   libcairo2-dev && \
