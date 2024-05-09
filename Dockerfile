@@ -16,9 +16,9 @@ RUN apt update && \
   build-essential \
   python${PYTHON_VERSION}-dev \
   python${PYTHON_VERSION}-distutils \
-  libmysqlclient-dev \
-  libssl-dev \
+  default-libmysqlclient-dev \
   pkg-config \
+  libssl-dev \
   libcairo2-dev && \
   rm -rf /var/lib/apt/lists/*
 
