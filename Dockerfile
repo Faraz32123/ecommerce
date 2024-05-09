@@ -18,12 +18,9 @@ RUN apt update && \
   python${PYTHON_VERSION}-dev \
   python${PYTHON_VERSION}-distutils \
   default-libmysqlclient-dev \
-  pkgconfig mariadb-dev \
   libssl-dev \
   libcairo2-dev && \
   rm -rf /var/lib/apt/lists/*
-
-RUN apt-get install pkg-config -y
 
 # Use UTF-8.
 RUN locale-gen en_US.UTF-8
@@ -52,6 +49,7 @@ ENV PATH "${ECOMMERCE_VENV_DIR}/bin:${ECOMMERCE_NODEENV_DIR}/bin:$PATH"
 
 RUN virtualenv -p python${PYTHON_VERSION} --always-copy ${ECOMMERCE_VENV_DIR}
 
+RUN apt-get install pkg-config -y && export MYSQLCLIENT_LDFLAGS=$(pkg-config --libs mysqlclient) && MYSQLCLIENT_CFLAGS=$(pkg-config --cflags mysqlclient)
 
 RUN pip install nodeenv
 
