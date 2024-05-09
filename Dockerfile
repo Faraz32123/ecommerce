@@ -14,11 +14,12 @@ RUN apt update && \
   git \
   language-pack-en \
   build-essential \
+  python${PYTHON_VERSION} \
   python${PYTHON_VERSION}-dev \
   python${PYTHON_VERSION}-distutils \
   default-libmysqlclient-dev \
-  pkg-config \
   libssl-dev \
+  pkg-config \
   libcairo2-dev && \
   rm -rf /var/lib/apt/lists/*
 
