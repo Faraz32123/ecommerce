@@ -17,6 +17,7 @@ RUN apt update && \
   python${PYTHON_VERSION}-dev \
   python${PYTHON_VERSION}-distutils \
   libmysqlclient-dev \
+  libmariadbclient-dev \
   libssl-dev \
   pkg-config \
   libcairo2-dev && \
