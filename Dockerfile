@@ -19,9 +19,10 @@ RUN apt update && \
   python${PYTHON_VERSION}-distutils \
   default-libmysqlclient-dev \
   libssl-dev \
-  pkg-config \
   libcairo2-dev && \
   rm -rf /var/lib/apt/lists/*
+
+RUN apt-get install pkg-config -y
 
 # Use UTF-8.
 RUN locale-gen en_US.UTF-8
