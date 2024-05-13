@@ -18,6 +18,7 @@ RUN apt update && \
   python${PYTHON_VERSION}-dev \
   python${PYTHON_VERSION}-distutils \
   default-libmysqlclient-dev \
+  pkg-config \
   libssl-dev \
   libcairo2-dev && \
   rm -rf /var/lib/apt/lists/*
@@ -49,7 +50,6 @@ ENV PATH "${ECOMMERCE_VENV_DIR}/bin:${ECOMMERCE_NODEENV_DIR}/bin:$PATH"
 
 RUN virtualenv -p python${PYTHON_VERSION} --always-copy ${ECOMMERCE_VENV_DIR}
 
-RUN apt-get install pkg-config -y && export MYSQLCLIENT_CFLAGS=`pkg-config mysqlclient --cflags` && export MYSQLCLIENT_LDFLAGS=`pkg-config mysqlclient --libs` 
 RUN pip install nodeenv
 
 RUN nodeenv ${ECOMMERCE_NODEENV_DIR} --node=16.14.0 --prebuilt && npm install -g npm@8.5.x

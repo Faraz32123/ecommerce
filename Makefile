@@ -41,15 +41,15 @@ requirements.js:
 	$(NODE_BIN)/bower install --allow-root
 
 requirements: requirements.js
-	pip3 install -r requirements/pip_tools.txt
-	pip3 install -r requirements/dev.txt --exists-action w
+	pip install -r requirements/pip_tools.txt
+	pip install -r requirements/dev.txt --exists-action w
 
 requirements.tox:
-	pip3 install -U pip
-	pip3 install -r requirements/tox.txt --exists-action w
+	pip install -U pip
+	pip install -r requirements/tox.txt --exists-action w
 
 production-requirements: requirements.js
-	pip3 install -r requirements.txt --exists-action w
+	pip install -r requirements.txt --exists-action w
 
 migrate: requirements.tox
 	tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-migrate

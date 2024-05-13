@@ -23,13 +23,8 @@ jobs:
           # Remove 'py' and insert a dot to format the version
           FORMATTED_VERSION=${{ matrix.python-version }}   # e.g., py38
           FORMATTED_VERSION=${FORMATTED_VERSION/py3/3.}    # becomes 3.8
-          
           # Set environment variables
           echo "PYTHON_VERSION=$FORMATTED_VERSION" >> $GITHUB_ENV
-
-      - name: Check Python Version
-        run: |
-          echo "Using Python Version: $PYTHON_VERSION"
       - name: Start container
         run: |
           PYTHON_VERSION=$PYTHON_VERSION docker compose -f ./.ci/docker-compose-ci.yml up -d
