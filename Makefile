@@ -97,7 +97,7 @@ fast_validate_python: clean requirements.tox
 validate: validate_python validate_js quality
 
 theme_static: requirements.tox
-	echo $PATH
+	echo ${PATH}
 	tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-theme_static
 
 static: requirements.js theme_static requirements.tox
