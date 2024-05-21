@@ -49,8 +49,10 @@ pygments==2.18.0
     #   sphinx
 pytz==2024.1
     # via babel
-requests==2.31.0
-    # via sphinx
+requests==2.30.0
+    # via
+    #   -c requirements/constraints.txt
+    #   sphinx
 snowballstemmer==2.2.0
     # via sphinx
 soupsieve==2.5
