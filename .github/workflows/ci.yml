@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['py311']
+        python-version: ['py312']
         django-env: ['django32']
         test: ['test-python']
     steps:
