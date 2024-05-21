@@ -11,9 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: ['py312']
+        python-version: ['py38', 'py311', 'py312']
         django-env: ['django32']
-        test: ['test-python']
+        test: ['quality-and-jobs', 'test-python', 'acceptance-python']
     steps:
       - uses: actions/checkout@v2
       - name: Setup and Format Python Version
@@ -36,7 +36,7 @@ jobs:
           "
       - name: Run tests
         run: |
-          docker exec -t -e CI=1 -e TOXENV=${{ matrix.python-version }}-${{ matrix.django-env }} ecommerce_testing bash -c "
+          docker exec -t -e CI=1 -e ecommerce_testing bash -c "
             cd /edx/app/ecommerce/ecommerce/ &&
             PATH=\$PATH:/edx/app/ecommerce/nodeenvs/ecommerce/bin:/snap/bin
             DJANGO_ENV=${{ matrix.django-env }} PYTHON_ENV=${{ matrix.python-version }} PYTHON_VERSION=$PYTHON_VERSION make ${{ matrix.test }}
