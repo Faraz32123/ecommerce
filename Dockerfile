@@ -14,7 +14,6 @@ RUN apt update && \
   git \
   language-pack-en \
   build-essential \
-  python${PYTHON_VERSION} \
   python${PYTHON_VERSION}-dev \
   python${PYTHON_VERSION}-distutils \
   libmysqlclient-dev \
