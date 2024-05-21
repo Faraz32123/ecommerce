@@ -36,10 +36,10 @@ jobs:
           "
       - name: Run tests
         run: |
-          docker exec -t -e CI=1 ecommerce_testing bash -c "
+          docker exec -t -e CI=1 ecommerce_testing bash -c --env TOXENV=${{ matrix.python-version }}-${{ matrix.django-env }} "
             cd /edx/app/ecommerce/ecommerce/ &&
             PATH=\$PATH:/edx/app/ecommerce/nodeenvs/ecommerce/bin:/snap/bin
-            --env TOXENV=${{ matrix.python-version }}-${{ matrix.django-env }}  DJANGO_ENV=${{ matrix.django-env }} PYTHON_ENV=${{ matrix.python-version }} make ${{ matrix.test }}
+            DJANGO_ENV=${{ matrix.django-env }} PYTHON_ENV=${{ matrix.python-version }} make ${{ matrix.test }}
           "
       - name: Run coverage
         if: matrix.test == 'test-python'
