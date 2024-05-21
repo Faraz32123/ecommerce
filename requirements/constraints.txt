@@ -20,6 +20,13 @@ django-oscar==3.2
 # Pinned because transifex-client==0.13.6 pins it
 urllib3>=1.24.2,<2.0.0
 
+# Was causing some tox issues locally.
+virtualenv==16.7.9
+
+# greater versions failing with extract-translations step.
+tox==3.14.6
+pluggy<1.0.0  # pluggy==1.0.0 requires tox>3.14.6
+
 # cybersource-rest-client-python requires 2.7, but requests gives 2.10 by default
 idna==2.7
 
@@ -38,11 +45,13 @@ selenium<4.0.0
 pytest-selenium<3.0.0
 pytest-variables<3.0.0
 
+# pylint>2.12.2 requires a lot of quality fixes. Can be resolved later on.
+pylint==2.12.2
+# pylint==2.12.2 requires mccabe<0.7.0
+mccabe<0.7
+# pylint==2.12.2 requires wrapt<1.14
+wrapt<1.14
+
 # backports-zoneinfo comes by-default in newer versions of python
 # it gives error while building wheel with python>=3.9
 backports.zoneinfo ; python_version < "3.9"
-
-requests<2.31.0
-
-tox==3.14.6
-pluggy<1.0.0

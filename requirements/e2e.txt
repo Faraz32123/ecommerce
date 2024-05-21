@@ -43,7 +43,7 @@ edx-django-utils==5.13.0
     # via
     #   -c requirements/base.txt
     #   edx-rest-api-client
-edx-rest-api-client==5.6.1
+edx-rest-api-client==5.7.0
     # via
     #   -c requirements/base.txt
     #   -r requirements/e2e.in
@@ -143,10 +143,9 @@ pytz==2024.1
     # via
     #   -c requirements/base.txt
     #   django
-requests==2.30.0
+requests==2.31.0
     # via
     #   -c requirements/base.txt
-    #   -c requirements/constraints.txt
     #   edx-rest-api-client
     #   pyjwkest
     #   pytest-base-url
@@ -177,9 +176,7 @@ stevedore==5.2.0
 tenacity==6.3.1
     # via pytest-selenium
 tomli==2.0.1
-    # via
-    #   -c requirements/base.txt
-    #   pytest
+    # via pytest
 typing-extensions==4.11.0
     # via
     #   -c requirements/base.txt

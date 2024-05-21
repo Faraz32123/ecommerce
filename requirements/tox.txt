@@ -4,16 +4,10 @@
 #
 #    make upgrade
 #
-distlib==0.3.8
-    # via virtualenv
 filelock==3.14.0
-    # via
-    #   tox
-    #   virtualenv
+    # via tox
 packaging==24.0
     # via tox
-platformdirs==4.2.2
-    # via virtualenv
 pluggy==0.13.1
     # via
     #   -c requirements/constraints.txt
@@ -28,5 +22,7 @@ tox==3.14.6
     # via
     #   -c requirements/constraints.txt
     #   -r requirements/tox.in
-virtualenv==20.26.2
-    # via tox
+virtualenv==16.7.9
+    # via
+    #   -c requirements/constraints.txt
+    #   tox

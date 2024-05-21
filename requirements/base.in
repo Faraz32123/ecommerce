@@ -43,7 +43,7 @@ jsonfield2
 libsass
 lxml[html_clean]
 markdown==3.4.3
-mysqlclient
+mysqlclient<1.5
 newrelic
 ndg-httpsclient
 openedx-atlas
@@ -64,6 +64,3 @@ stripe
 unicodecsv
 xss-utils
 zeep
-pylint
-mccabe
-wrapt

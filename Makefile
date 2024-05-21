@@ -53,7 +53,7 @@ production-requirements: requirements.js
 	pip install -r requirements.txt --exists-action w
 
 migrate: requirements.tox
-	python$(PYTHON_VERSION_VAR) -m python$(PYTHON_VERSION_VAR) -m tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-migrate
+	python$(PYTHON_VERSION_VAR) -m tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-migrate
 
 serve: requirements.tox
 	python$(PYTHON_VERSION_VAR) -m tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-serve
@@ -98,7 +98,6 @@ fast_validate_python: clean requirements.tox
 validate: validate_python validate_js quality
 
 theme_static: requirements.tox
-	echo ${PATH}
 	python$(PYTHON_VERSION_VAR) -m tox -e $(PYTHON_ENV_VAR)-${DJANGO_ENV_VAR}-theme_static
 
 static: requirements.js theme_static requirements.tox
