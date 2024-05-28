@@ -32,7 +32,8 @@ jobs:
           sudo apt-get update -y &&
           sudo apt-get install python$PYTHON_VERSION \
           python$PYTHON_VERSION-dev \
-          python$PYTHON_VERSION-distutils -y &&
+          python$PYTHON_VERSION-distutils \
+          default-libmysqlclient-dev build-essential pkg-config -y &&
           curl -sS https://bootstrap.pypa.io/get-pip.py | python$PYTHON_VERSION;"
         # Need to install pip from source here^ otherwise some packages don't get installed
       - name: Install dependencies

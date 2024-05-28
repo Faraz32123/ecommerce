@@ -32,4 +32,6 @@ tox==3.14.6
 tox-battery==0.6.2
     # via -r requirements/tox.in
 virtualenv==20.26.2
-    # via tox
+    # via
+    #   -c requirements/constraints.txt
+    #   tox
