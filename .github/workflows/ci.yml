@@ -30,10 +30,10 @@ jobs:
           docker compose -f ./.ci/docker-compose-ci.yml up -d
           docker exec ecommerce_testing bash -c "
           sudo apt-get update -y &&
-          sudo apt-get install python${{ matrix.python-version }} \
-          python${{ matrix.python-version }}-dev \
-          python${{ matrix.python-version }}-distutils -y &&
-          curl -sS https://bootstrap.pypa.io/get-pip.py | python${{ matrix.python-version }};"
+          sudo apt-get install python$PYTHON_VERSION \
+          python$PYTHON_VERSION-dev \
+          python$PYTHON_VERSION-distutils -y &&
+          curl -sS https://bootstrap.pypa.io/get-pip.py | python$PYTHON_VERSION;"
         # Need to install pip from source here^ otherwise some packages don't get installed
       - name: Install dependencies
         run: |
