@@ -28,7 +28,7 @@ jobs:
       - name: Start container
         run: |
           docker compose -f ./.ci/docker-compose-ci.yml up -d
-          docker exec ecomworker bash -c "
+          docker exec ecommerce_testing bash -c "
           sudo apt-get update -y &&
           sudo apt-get install python${{ matrix.python-version }} \
           python${{ matrix.python-version }}-dev \
