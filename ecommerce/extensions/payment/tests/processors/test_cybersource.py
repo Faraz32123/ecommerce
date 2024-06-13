@@ -3,6 +3,7 @@
 
 
 import json
+import sys
 from decimal import Decimal
 from unittest import SkipTest
 
@@ -49,7 +50,7 @@ class CybersourceTests(CybersourceMixin, PaymentProcessorTestCaseMixin, TestCase
         expected = {
             'requestID': transaction_id,
         }
-        self.assertDictContainsSubset(expected, ppr.response)
+        self.assertLessEqual(expected.items(), ppr.response.items())
         self.assertEqual(ppr.basket, basket)
 
         return ppr.id

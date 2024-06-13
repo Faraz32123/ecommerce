@@ -1,5 +1,6 @@
 
 
+import sys
 from decimal import Decimal
 from urllib import parse
 
@@ -338,7 +339,13 @@ class ReceiptResponseViewTests(DiscoveryMockMixin, LmsApiMockMixin, RefundTestMi
         }
 
         self.assertEqual(response.status_code, 200)
-        self.assertDictContainsSubset(context_data, response.context_data)
+        # if sys.version_info > (3, 9):
+        #     # assertDictContainsSubset is deprecated in Python version > 3.9
+        #     # assertLessEqual method is used instead of the deprecated assertDictContainsSubset method
+        #     self.assertEqual(response.context_data, response.context_data | context_data)
+        # else:
+        #     self.assertDictContainsSubset(context_data, response.context_data)
+        self.assertLessEqual(context_data.items(), response.context_data.items())
 
     @patch('ecommerce.extensions.checkout.views.fetch_enterprise_learner_data')
     @responses.activate
@@ -371,7 +378,10 @@ class ReceiptResponseViewTests(DiscoveryMockMixin, LmsApiMockMixin, RefundTestMi
         }
 
         self.assertEqual(response.status_code, 200)
-        self.assertDictContainsSubset(context_data, response.context_data)
+        if sys.version_info > (3, 9):
+            self.assertEqual(response.context_data, response.context_data | context_data)
+        else:
+            self.assertDictContainsSubset(context_data, response.context_data)
 
     @patch('ecommerce.extensions.checkout.views.fetch_enterprise_learner_data')
     @responses.activate
@@ -387,7 +397,10 @@ class ReceiptResponseViewTests(DiscoveryMockMixin, LmsApiMockMixin, RefundTestMi
         }
 
         self.assertEqual(response.status_code, 200)
-        self.assertDictContainsSubset(context_data, response.context_data)
+        if sys.version_info > (3, 9):
+            self.assertEqual(response.context_data, response.context_data | context_data)
+        else:
+            self.assertDictContainsSubset(context_data, response.context_data)
 
     @patch('ecommerce.extensions.checkout.views.fetch_enterprise_learner_data')
     @responses.activate
@@ -400,7 +413,10 @@ class ReceiptResponseViewTests(DiscoveryMockMixin, LmsApiMockMixin, RefundTestMi
         context_data = {'order_history_url': self.site.siteconfiguration.build_lms_url('account/settings')}
 
         self.assertEqual(response.status_code, 404)
-        self.assertDictContainsSubset(context_data, response.context_data)
+        if sys.version_info > (3, 9):
+            self.assertEqual(response.context_data, response.context_data | context_data)
+        else:
+            self.assertDictContainsSubset(context_data, response.context_data)
 
     @patch('ecommerce.extensions.checkout.views.fetch_enterprise_learner_data')
     @responses.activate
@@ -456,7 +472,10 @@ class ReceiptResponseViewTests(DiscoveryMockMixin, LmsApiMockMixin, RefundTestMi
         }
 
         self.assertEqual(response.status_code, 200)
-        self.assertDictContainsSubset(context_data, response.context_data)
+        if sys.version_info > (3, 9):
+            self.assertEqual(response.context_data, response.context_data | context_data)
+        else:
+            self.assertDictContainsSubset(context_data, response.context_data)
 
     @patch('ecommerce.extensions.checkout.views.fetch_enterprise_learner_data')
     @responses.activate
@@ -482,7 +501,10 @@ class ReceiptResponseViewTests(DiscoveryMockMixin, LmsApiMockMixin, RefundTestMi
         }
 
         self.assertEqual(response.status_code, 200)
-        self.assertDictContainsSubset(context_data, response.context_data)
+        if sys.version_info > (3, 9):
+            self.assertEqual(response.context_data, response.context_data | context_data)
+        else:
+            self.assertDictContainsSubset(context_data, response.context_data)
 
     @patch('ecommerce.extensions.checkout.views.fetch_enterprise_learner_data')
     @responses.activate
